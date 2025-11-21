@@ -1,11 +1,10 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import BackgroundEffects from "../components/BackgroundEffects";
 
 export const metadata = {
   title: "Roman DevWorks",
-  description: "Discord bots, automation, and digital software by Roman DevWorks.",
+  description: "Discord bots & digital automation — built by Roman DevWorks",
 };
 
 export default function RootLayout({
@@ -15,19 +14,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white min-h-screen flex flex-col">
-        {/* Futuristic animated background */}
-        <BackgroundEffects />
+      <body className="relative">
+        {/* global spotlight glow */}
+        <div className="spotlight"></div>
 
-        {/* Top navigation */}
+        {/* top navigation */}
         <Navbar />
 
-        {/* Page content */}
-        <main className="flex-grow w-full">
-          {children}
-        </main>
+        {/* page content */}
+        <div className="pt-24">{children}</div>
 
-        {/* Footer */}
+        {/* footer */}
         <Footer />
       </body>
     </html>

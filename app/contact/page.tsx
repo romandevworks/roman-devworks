@@ -1,72 +1,70 @@
-import Link from "next/link";
-import AnimatedSection from "../../components/AnimatedSection";
-
-export const metadata = {
-  title: "Contact • Roman DevWorks",
-  description: "Get in touch with Roman DevWorks — Discord bot & software development.",
-};
+import Reveal from "../../components/Reveal";
 
 export default function ContactPage() {
   return (
-    <main className="pt-28 pb-28 px-6 max-w-4xl mx-auto text-center">
-      <h1 className="text-5xl font-extrabold mb-4">Contact</h1>
-      <p className="text-gray-400 max-w-xl mx-auto mb-16">
-        Want a custom Discord bot or software solution?  
-        I'm open to commissions, collaborations, or business inquiries.
-      </p>
+    <main className="pt-32 pb-24 select-none">
 
-      <AnimatedSection>
-        {/* Contact Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-6 mb-20">
-          <Link
-            href="mailto:romandevworks@proton.me"
-            className="px-8 py-4 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition"
-          >
-            📩 Email Me
-          </Link>
+      {/* Header */}
+      <section className="text-center mb-20 relative">
+        <div className="spotlight"></div>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 fade">
+          Contact
+        </h1>
+        <p className="text-white/70 max-w-2xl mx-auto text-lg fade">
+          If you want to discuss a bot, a project, or just ask something — I'm always open.
+        </p>
+      </section>
 
-          <Link
-            href="https://discord.com/users/1388535675921502349"
-            className="px-8 py-4 border border-neutral-500 rounded-lg font-semibold hover:border-neutral-300 transition"
-            target="_blank"
-          >
-            💬 Contact on Discord
-          </Link>
-        </div>
+      {/* Contact Options */}
+      <Reveal>
+        <section className="max-w-3xl mx-auto text-center space-y-10">
 
-        {/* Contact Form (no backend required) */}
-        <form
-          action="https://formsubmit.co/romandevworks@proton.me"
-          method="POST"
-          className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 text-left max-w-xl mx-auto"
-        >
-          <input type="hidden" name="_subject" value="New Inquiry from Roman DevWorks Website" />
-          <input type="hidden" name="_captcha" value="false" />
+          {/* Email */}
+          <div className="glass p-8">
+            <h2 className="text-2xl font-semibold mb-3">Email</h2>
+            <p className="text-white/60 mb-6">
+              I usually reply within 24 hours — faster if it's about a build request.
+            </p>
+            <a
+              href="mailto:romandevworks@proton.me"
+              className="button-primary inline-block"
+            >
+              romandevworks@proton.me
+            </a>
+          </div>
 
-          <label className="block text-sm text-gray-400 mb-2">Your Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            className="w-full bg-neutral-800 border border-neutral-700 rounded-md px-4 py-2 mb-6 text-white focus:outline-none"
-          />
+          {/* Discord */}
+          <div className="glass p-8">
+            <h2 className="text-2xl font-semibold mb-3">Discord</h2>
+            <p className="text-white/60 mb-6">
+              Best for fast questions or direct conversation.
+            </p>
+            <a
+              href="https://discord.com/users/1388535675921502349"
+              className="button-secondary inline-block"
+            >
+              @RomanDevWorks
+            </a>
+          </div>
+        </section>
+      </Reveal>
 
-          <label className="block text-sm text-gray-400 mb-2">Message</label>
-          <textarea
-            name="message"
-            required
-            rows={5}
-            className="w-full bg-neutral-800 border border-neutral-700 rounded-md px-4 py-2 mb-6 text-white focus:outline-none resize-none"
-          />
+      {/* CTA */}
+      <Reveal>
+        <section className="text-center mt-32 max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Let’s Build Something
+          </h2>
+          <p className="text-white/60 text-lg leading-relaxed mb-8">
+            Whether you’re a server owner, a community manager, or another dev —
+            if you have an idea, I’m interested.
+          </p>
 
-          <button
-            type="submit"
-            className="w-full px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition"
-          >
-            Send Message
-          </button>
-        </form>
-      </AnimatedSection>
+          <a href="/projects" className="button-primary">
+            View My Work
+          </a>
+        </section>
+      </Reveal>
     </main>
   );
 }

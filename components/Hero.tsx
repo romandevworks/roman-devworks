@@ -1,52 +1,75 @@
 "use client";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [offset, setOffset] = useState(0);
+
+  // parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => setOffset(window.scrollY * 0.15);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative flex flex-col items-center justify-center text-center pt-32 pb-24 px-6">
-      {/* Background radial gradient */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/5 via-white/2 to-transparent blur-3xl opacity-30" />
+    <section className="relative text-center pt-32 pb-28 overflow-hidden select-none">
 
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-5xl"
+      {/* spotlight parallax */}
+      <div
+        className="spotlight"
+        style={{
+          transform: `translateX(-50%) translateY(${offset * 0.6}px)`,
+        }}
+      ></div>
+
+      {/* hero title */}
+      <h1
+        className="text-5xl md:text-7xl font-bold fade"
+        style={{
+          transform: `translateY(${offset * 0.25}px)`,
+        }}
       >
-        Developer Studio for Communities, Creators, and Businesses
-      </motion.h1>
+        Introducing <span className="text-white/90">Roman DevWorks</span>
+      </h1>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="text-gray-300 text-lg mt-6 max-w-2xl"
+      {/* mobile title scale override */}
+      <style jsx>{`
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 2.45rem;
+            line-height: 1.15;
+            padding: 0 6px;
+          }
+        }
+      `}</style>
+
+      {/* subtitle */}
+      <p
+        className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto fade"
+        style={{ animationDelay: "0.22s" }}
       >
-        Crafting Discord bots, automations, and digital tools that actually work — built with precision, reliability, and performance.
-      </motion.p>
+        Started as a hobby. Still learning. Still improving. Still leveling up —
+        every project teaches me something new.
+      </p>
 
-      {/* CTA Buttons */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.45, duration: 0.5 }}
-        className="flex gap-4 mt-10 flex-wrap justify-center"
+      {/* buttons */}
+      <div
+        className="flex justify-center gap-5 mt-10 fade flex-wrap"
+        style={{ animationDelay: "0.44s" }}
       >
-        <Link
-          href="/bots"
-          className="px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition"
-        >
-          Invite Bots
-        </Link>
+        <button className="button-primary">Invite Bots</button>
+        <button className="button-secondary">View Projects</button>
+      </div>
 
-        <Link
-          href="/projects"
-          className="px-6 py-3 border border-gray-500 hover:border-gray-300 rounded-lg font-semibold transition"
-        >
-          View Projects
-        </Link>
-      </motion.div>
+      {/* divider */}
+      <div
+        className="w-[190px] h-px mx-auto mt-16 fade"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent)",
+          animationDelay: "0.7s",
+        }}
+      ></div>
     </section>
   );
 }

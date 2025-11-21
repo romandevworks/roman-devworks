@@ -1,96 +1,91 @@
-import AnimatedSection from "../../components/AnimatedSection";
-import Link from "next/link";
-
-export const metadata = {
-  title: "Projects • Roman DevWorks",
-  description: "Showcase of bots, software & digital builds by Roman DevWorks.",
-};
-
-const projects = [
-  {
-    name: "Automated Server Security",
-    image: "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
-    description:
-      "Advanced Discord automation for raid prevention and server safety using AI pattern detection.",
-    tech: ["Node.js", "Discord API", "Redis", "Cloud Hosting"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    name: "Music Streaming System",
-    image: "https://cdn-icons-png.flaticon.com/512/727/727240.png",
-    description:
-      "Low-latency audio playback from YouTube, Spotify & SoundCloud with queue, autoplay & lyrics.",
-    tech: ["JavaScript", "Lavalink", "YouTube API", "Spotify API"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    name: "Digital Economy Engine",
-    image: "https://cdn-icons-png.flaticon.com/512/2171/2171990.png",
-    description:
-      "Virtual rewards system with currency, jobs, trading, XP, leaderboards & full persistent data.",
-    tech: ["TypeScript", "MongoDB", "REST API", "WebSockets"],
-    github: "#",
-    demo: "#",
-  },
-];
+import Reveal from "../../components/Reveal";
 
 export default function ProjectsPage() {
   return (
-    <main className="pt-28 pb-28 px-6 max-w-6xl mx-auto">
-      <h1 className="text-5xl font-extrabold text-center mb-4">Projects</h1>
-      <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto">
-        A collection of software and automation built with precision, scalability, and clean design.
-      </p>
+    <main className="pt-32 pb-24 select-none">
 
-      <AnimatedSection>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-neutral-900 border border-neutral-800 hover:border-neutral-600 rounded-xl p-6 transition"
-            >
-              <div className="flex justify-center mb-6">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-20 h-20 object-contain opacity-90"
-                />
-              </div>
+      {/* Header */}
+      <section className="text-center mb-20 relative">
+        <div className="spotlight"></div>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 fade">
+          Projects
+        </h1>
+        <p className="text-white/70 max-w-2xl mx-auto text-lg fade">
+          Everything here started as an experiment — then turned into something worth building.
+        </p>
+      </section>
 
-              <h2 className="text-2xl font-bold mb-2">{project.name}</h2>
-              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+      {/* Grid */}
+      <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-neutral-800 text-gray-300 text-xs px-2 py-1 rounded-md"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+        {/* Dashboard */}
+        <Reveal>
+          <div className="glass p-8 text-center">
+            <div className="text-7xl md:text-8xl mb-6 icon-float icon-hover-glow icon-tilt">🖥️</div>
+            <h2 className="text-2xl font-semibold mb-3">Bot Dashboard (coming soon)</h2>
+            <p className="text-white/60 mb-6">
+              Web panel for controlling bots — logs, settings, roles, permissions and live metrics.
+              Still in the lab… but already looking 🔥.
+            </p>
 
-              <div className="flex gap-3">
-                <Link
-                  href={project.github}
-                  className="px-5 py-2 bg-white text-black font-semibold rounded-md hover:bg-neutral-200 transition"
-                >
-                  GitHub
-                </Link>
-                <Link
-                  href={project.demo}
-                  className="px-5 py-2 border border-neutral-500 rounded-md font-semibold hover:border-neutral-300 transition"
-                >
-                  Demo
-                </Link>
-              </div>
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button className="button-secondary">Preview</button>
+              <button className="button-secondary">Source Code</button>
             </div>
-          ))}
-        </div>
-      </AnimatedSection>
+          </div>
+        </Reveal>
+
+        {/* API Wrapper */}
+        <Reveal>
+          <div className="glass p-8 text-center">
+            <div className="text-7xl md:text-8xl mb-6 icon-float icon-hover-glow icon-tilt">🔗</div>
+            <h2 className="text-2xl font-semibold mb-3">Discord Utilities Library</h2>
+            <p className="text-white/60 mb-6">
+              A TypeScript library that handles slash commands, cooldowns,
+              event routing & permissions — because boilerplate kills creativity.
+            </p>
+
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button className="button-secondary">NPM Page</button>
+              <button className="button-secondary">Docs</button>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Automation Toolkit */}
+        <Reveal>
+          <div className="glass p-8 text-center">
+            <div className="text-7xl md:text-8xl mb-6 icon-float icon-hover-glow icon-tilt">⚙️</div>
+            <h2 className="text-2xl font-semibold mb-3">Auto-Deploy Toolkit</h2>
+            <p className="text-white/60 mb-6">
+              Push code → updates slash commands → redeploy container —
+              *all automated.* Saves time. Prevents headaches.
+            </p>
+
+            <div className="flex gap-3 justify-center flex-wrap">
+              <button className="button-secondary">Download</button>
+              <button className="button-secondary">Docs</button>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Closing Message */}
+      <Reveal>
+        <section className="text-center mt-32">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            More on the Way
+          </h2>
+          <p className="text-white/60 max-w-xl mx-auto mb-8">
+            I build whatever sounds fun — and every project teaches me something
+            that shows up in the next one.
+          </p>
+
+          <a href="/" className="button-primary">
+            Back to Home
+          </a>
+        </section>
+      </Reveal>
     </main>
   );
 }

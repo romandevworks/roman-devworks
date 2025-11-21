@@ -1,52 +1,48 @@
-"use client";
-
-import Link from "next/link";
-import { FaDiscord, FaGithub, FaEnvelope } from "react-icons/fa";
-
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-neutral-900/70 mt-24 bg-black/60 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+    <footer className="mt-40 pt-20 pb-14 px-6 md:px-20 text-center text-white/60 select-none border-t border-white/10 fade">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Top Row */}
-        <div className="flex flex-col md:flex-row justify-between gap-10">
-          
-          {/* Logo / tagline */}
-          <div>
-            <h2 className="text-2xl font-bold">
-              Roman<span className="text-white/60">DevWorks</span>
-            </h2>
-            <p className="text-gray-400 mt-2 max-w-xs">
-              Discord bots and digital automation built with performance and precision.
-            </p>
-          </div>
+        {/* Brand */}
+        <h2 className="text-3xl font-semibold text-white mb-6 tracking-wide">
+          Roman DevWorks
+        </h2>
 
-          {/* Quick Links */}
-          <div className="flex flex-col gap-2 text-sm font-medium">
-            <Link href="/" className="hover:text-white transition">Home</Link>
-            <Link href="/bots" className="hover:text-white transition">Bots</Link>
-            <Link href="/projects" className="hover:text-white transition">Projects</Link>
-            <Link href="/contact" className="hover:text-white transition">Contact</Link>
-          </div>
+        {/* Navigation */}
+        <nav className="flex flex-wrap justify-center gap-8 text-white/60 mb-12 text-lg">
+          <a href="/" className="hover:text-white transition">Home</a>
+          <a href="/bots" className="hover:text-white transition">Bots</a>
+          <a href="/projects" className="hover:text-white transition">Projects</a>
+          <a href="/about" className="hover:text-white transition">About</a>
+          <a href="/contact" className="hover:text-white transition">Contact</a>
+        </nav>
 
-          {/* Social Links */}
-          <div className="flex gap-4 text-2xl">
-            <Link href="https://discord.com" target="_blank" className="hover:text-white/70 transition">
-              <FaDiscord />
-            </Link>
-            <Link href="https://github.com/romandevworks" target="_blank" className="hover:text-white/70 transition">
-              <FaGithub />
-            </Link>
-            <Link href="mailto:romandevworks@proton.me" className="hover:text-white/70 transition">
-              <FaEnvelope />
-            </Link>
-          </div>
+        {/* Contact */}
+        <div className="space-y-1 mb-12">
+          <p>
+            Email —{" "}
+            <a href="mailto:romandevworks@proton.me" className="text-white hover:underline">
+              romandevworks@proton.me
+            </a>
+          </p>
+          <p>
+            Discord —{" "}
+            <a
+              href="https://discord.com/users/1388535675921502349"
+              className="text-white hover:underline"
+            >
+              @RomanDevWorks
+            </a>
+          </p>
         </div>
 
-        {/* Line */}
-        <div className="border-t border-neutral-900/70 mt-12 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Roman DevWorks — All Rights Reserved.
-        </div>
+        {/* Divider */}
+        <div className="w-full h-px bg-white/10 mb-8"></div>
+
+        {/* Copyright */}
+        <p className="text-sm text-white/40">
+          © {new Date().getFullYear()} Roman DevWorks — All rights reserved.
+        </p>
       </div>
     </footer>
   );

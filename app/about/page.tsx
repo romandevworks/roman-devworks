@@ -1,116 +1,84 @@
-import AnimatedSection from "../../components/AnimatedSection";
-import Link from "next/link";
-
-export const metadata = {
-  title: "About • Roman DevWorks",
-  description: "Learn more about the developer behind Roman DevWorks.",
-};
+import Reveal from "../../components/Reveal";
 
 export default function AboutPage() {
   return (
-    <main className="pt-28 pb-28 px-6 max-w-4xl mx-auto">
-      <h1 className="text-5xl font-extrabold text-center mb-4">About Me</h1>
-      <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto">
-        The person behind Roman DevWorks — building Discord bots and digital automation with passion and consistency.
-      </p>
+    <main className="pt-32 pb-24 select-none">
 
-      <AnimatedSection>
-        <section className="text-gray-300 space-y-6 text-lg leading-relaxed">
-          <p>
-            Hey, I’m Roman. I’m a 15-year-old developer and the person behind Roman
-            DevWorks. I got into coding because I wanted to make Discord bots for my
-            own servers — nothing fancy, just something that actually worked and made
-            things easier. Once I wrote my first command and saw it respond in chat,
-            I was hooked.
+      {/* Header */}
+      <section className="text-center mb-20 relative">
+        <div className="spotlight"></div>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 fade">
+          About Me
+        </h1>
+        <p className="text-white/70 max-w-2xl mx-auto text-lg fade">
+          A little insight into who’s behind Roman DevWorks.
+        </p>
+      </section>
+
+      {/* Bio */}
+      <Reveal>
+        <section className="max-w-3xl mx-auto text-center mb-24 px-2">
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            I'm Roman — a 16-year-old developer who builds Discord bots and web applications.  
+            I’m not from a company, bootcamp, or tech school — I started learning because I
+            wanted to make something real, something that actually worked.
           </p>
-
-          <p>
-            I didn’t learn from a school program or a teacher. I learned by messing up,
-            breaking things, searching solutions, and fixing them until everything worked.
-            Every new project teaches me something I didn’t know before, and that’s what I
-            love about programming.
+          <p className="text-white/60 text-lg leading-relaxed mb-6">
+            What began as small hobby projects grew into a passion for automation,
+            community tools and clean, reliable software. Every new bot or project becomes
+            a lesson, a challenge, and a way to get better than I was last month.
           </p>
-
-          <p>
-            Today I build bots that do way more than I expected when I started — music,
-            moderation, tickets, economy systems, automation, and more. I’m not trying to
-            act like a huge company. It’s literally just me, learning and improving nonstop,
-            and putting real effort into everything I build.
-          </p>
-
-          <p>
-            I don’t want people to use my bots because the branding looks cool. I want them
-            to use them because the bots actually help, run smoothly, and make servers
-            better. That’s the whole goal behind Roman DevWorks.
+          <p className="text-white/60 text-lg leading-relaxed">
+            I’m still learning, still improving, and still having fun — and the goal is
+            simple: build things that feel good to use.
           </p>
         </section>
-      </AnimatedSection>
+      </Reveal>
 
       {/* Skills */}
-      <AnimatedSection>
-        <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-6 text-center">Skills & Tech</h2>
-          <div className="flex flex-wrap justify-center gap-3">
+      <Reveal>
+        <section className="max-w-5xl mx-auto mb-24">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-10">
+            What I Work With
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              "JavaScript",
               "TypeScript",
+              "Next.js",
               "Node.js",
               "Discord.js",
-              "Next.js",
+              "Tailwind",
               "MongoDB",
               "REST APIs",
-              "WebSockets",
-              "UI/UX",
-            ].map((skill, i) => (
-              <span
-                key={i}
-                className="bg-neutral-900 border border-neutral-800 text-gray-300 text-sm px-3 py-1 rounded-lg"
+              "UI/UX Design",
+            ].map((item) => (
+              <div
+                key={item}
+                className="glass py-4 text-white/80 font-semibold text-lg hover:text-white transition"
               >
-                {skill}
-              </span>
+                {item}
+              </div>
             ))}
           </div>
         </section>
-      </AnimatedSection>
+      </Reveal>
 
-      {/* Timeline */}
-      <AnimatedSection>
-        <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">Timeline</h2>
-          <div className="space-y-6 border-l border-neutral-800 pl-6">
-            <div>
-              <h3 className="text-xl font-semibold">2023 — Started Learning</h3>
-              <p className="text-gray-400 text-sm">
-                Began coding Discord bots and automation as a hobby.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">2024 — First Real Projects</h3>
-              <p className="text-gray-400 text-sm">
-                Created music, moderation, and economy systems used by real servers.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">2025 — Roman DevWorks</h3>
-              <p className="text-gray-400 text-sm">
-                Started building bots and automation under my own developer brand.
-              </p>
-            </div>
-          </div>
+      {/* Last section */}
+      <Reveal>
+        <section className="text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            What’s Next?
+          </h2>
+          <p className="text-white/60 text-lg leading-relaxed mb-8">
+            Bigger projects, cleaner systems, more collaboration, and more things I never
+            thought I could build. This is only the beginning — and there’s a lot more coming.
+          </p>
+          <a href="/projects" className="button-primary">
+            View My Work
+          </a>
         </section>
-      </AnimatedSection>
-
-      {/* CTA Button */}
-      <AnimatedSection>
-        <section className="mt-24 text-center">
-          <Link
-            href="/contact"
-            className="px-8 py-4 bg-white text-black rounded-lg font-semibold hover:bg-neutral-200 transition"
-          >
-            Get in Touch
-          </Link>
-        </section>
-      </AnimatedSection>
+      </Reveal>
     </main>
   );
 }
