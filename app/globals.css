@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-black text-white;
+/* Smooth fonts & global reset */
+* {
+  @apply antialiased;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection style */
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Hide scrollbar while scrolling still works */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Link style (fixes blue browser defaults) */
+a {
+  @apply no-underline;
+}
+
+/* Container helpers */
+.section {
+  @apply max-w-6xl mx-auto px-6;
+}
+
+/* Futuristic glow hover effect for buttons */
+.hover-glow {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+/* Animation utilities */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.7s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
