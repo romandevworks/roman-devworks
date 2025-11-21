@@ -1,21 +1,31 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
-    if (ref.current) observer.observe(ref.current);
-    return () => ref.current && observer.unobserve(ref.current);
+    observer.observe(element);
+
+    // Cleanup MUST NOT return null, so we fix it:
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return <div ref={ref} className="reveal">{children}</div>;
